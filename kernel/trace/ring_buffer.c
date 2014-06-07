@@ -1910,7 +1910,7 @@ rb_set_commit_to_write(struct ring_buffer_per_cpu *cpu_buffer)
 			return;
 		local_set(&cpu_buffer->commit_page->page->commit,
 			  rb_page_write(cpu_buffer->commit_page));
-		rb_inc_page(cpu_buffer, &cpu_buffer->commit_page);
+	/*	rb_inc_page(cpu_buffer, &cpu_buffer->commit_page); */
 		cpu_buffer->write_stamp =
 			cpu_buffer->commit_page->page->time_stamp;
 		/* add barrier to keep gcc from optimizing too much */
